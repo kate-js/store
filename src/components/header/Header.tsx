@@ -11,6 +11,10 @@ const Header = () => {
         <li>Новости</li>
         <li>Контакты</li>
       </ul>
+      <div className='header__basket'>
+        <img src='../../../assets/basket.png' />
+        <span>1</span>
+      </div>
     </div>
   );
 };

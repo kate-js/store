@@ -2,6 +2,7 @@
   padding: 20px;
   display: flex;
   background-color: green;
+  justify-content: space-between;
 }
 
 .header__nav {
@@ -15,4 +16,8 @@
 
 .header__nav li:last-child {
   padding-right: 0;
+}
+
+.header__basket img{
+  width: 50px;
 }
