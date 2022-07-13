@@ -2,7 +2,6 @@ import { ICard, ICardItem } from '../../../types';
 import CardItems from './card/CardItems';
 
 const CardList = (props: ICard) => {
-  console.log('props', props);
   return (
     <div className='card__section'>
       {props.card.length !== 0 ? (
