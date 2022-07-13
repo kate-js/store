@@ -5,9 +5,29 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between;
+  padding: 10px;
 }
 
+.card__image {
+  display: flex;
+  overflow: hidden;
+  /* border: 1px solid #000; */
+}
 .card img {
-  background-size: cover;
-  width: 290px;
+  margin: auto;
+  width: auto;
+  height: 200px;
+}
+
+.card__content {
+  width: 280px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.card__content p {
+  margin: 0;
+  padding: 0;
 }
