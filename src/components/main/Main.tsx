@@ -1,47 +1,43 @@
 import './main.css';
 import 'rc-slider/assets/index.css';
 
-import axios from 'axios';
 import { useState, useEffect, ChangeEvent } from 'react';
 import Slider from 'rc-slider';
 
 import { ICardItem } from '../../types';
 import MySelect from '../UI/MySelect';
 import CardList from './cardsList/CardList';
+import data from '../../data/products';
 
 const Main = () => {
-  const [cards, setCards] = useState<ICardItem[]>([]);
+  const [cards, setCards] = useState<ICardItem[]>(data);
   const [selectedSort, setSelectedSort] = useState<string>('');
   const [searchQuery, setSearchQuery] = useState<string>('');
-  const [displayedCards, setDisplayedCards] = useState<ICardItem[]>([]);
-  const [startValueRange, setStartValueRange] = useState<number>(0);
-  const [endValueRange, setEndValueRange] = useState<number>(1000);
+  const [displayedCards, setDisplayedCards] = useState<ICardItem[]>(data);
+  const [startValueRange, setStartValueRange] = useState<number>(1900);
+  const [endValueRange, setEndValueRange] = useState<number>(2022);
   const [startRateRange, setStartRateRange] = useState<number>(0);
-  const [endRateRange, setEndRateRange] = useState<number>(5);
+  const [endRateRange, setEndRateRange] = useState<number>(50);
 
-  async function fetchProduct() {
-    const response = await axios.get('https://fakestoreapi.com/products/');
-    setCards(response.data);
-    setDisplayedCards([...response.data]);
-  }
-  useEffect(() => {
-    fetchProduct();
-  }, []);
+  // useEffect(() => {
+  //   setCards(data);
+  //   setDisplayedCards(data);
+  // }, []);
 
   const sortCard: (sort: string) => void = (sort) => {
     setSelectedSort(sort);
     switch (sort) {
       case 'title':
-        setDisplayedCards([...displayedCards].sort((a, b) => a.title.localeCompare(b.title)));
+        setDisplayedCards([...displayedCards].sort((a, b) => a.name.localeCompare(b.name)));
         break;
       case 'titleReversed':
-        setDisplayedCards([...displayedCards].sort((a, b) => b.title.localeCompare(a.title)));
+        setDisplayedCards([...displayedCards].sort((a, b) => b.name.localeCompare(a.name)));
         break;
       case 'rating':
-        setDisplayedCards([...displayedCards].sort((a, b) => a.price - b.price));
+        setDisplayedCards([...displayedCards].sort((a, b) => parseInt(a.year) - parseInt(b.year)));
         break;
       case 'ratingReversed':
-        setDisplayedCards([...displayedCards].sort((a, b) => b.price - a.price));
+        setDisplayedCards([...displayedCards].sort((a, b) => parseInt(b.year) - parseInt(a.year)));
         break;
     }
   };
@@ -63,7 +59,6 @@ const Main = () => {
   };
 
   const handleChangeQuery = (event: ChangeEvent<HTMLInputElement>) => {
-    console.log('event', event);
     setSearchQuery(event.target.value);
   };
 
@@ -71,16 +66,17 @@ const Main = () => {
     const query = searchQuery.toLowerCase();
     const filteredCards = cards.filter(
       (card) =>
-        card.title.toLowerCase().includes(query) &&
-        card.price >= startValueRange &&
-        card.price <= endValueRange &&
-        startRateRange <= card.rating.rate &&
-        endRateRange >= card.rating.rate
+        card.name.toLowerCase().includes(query) &&
+        parseInt(card.year) >= startValueRange &&
+        parseInt(card.year) <= endValueRange &&
+        startRateRange <= parseInt(card.count) &&
+        endRateRange >= parseInt(card.count)
     );
     setDisplayedCards(filteredCards);
   }, [startValueRange, endValueRange, searchQuery, startRateRange, endRateRange]);
 
   console.log('displayedCards', displayedCards, endValueRange, startValueRange);
+
   return (
     <div className="main">
       <div className="main__filter">
@@ -94,12 +90,12 @@ const Main = () => {
         <MySelect
           value={selectedSort}
           onChange={sortCard}
-          defaultValue="Сортировка по"
+          defaultValue="Сортировка"
           options={[
-            { value: 'title', name: 'названию от А' },
-            { value: 'titleReversed', name: 'названию от Я' },
-            { value: 'rating', name: 'цене от самого дешевого' },
-            { value: 'ratingReversed', name: 'цене от самого дорогого' },
+            { value: 'title', name: ' по названию от А до Я' },
+            { value: 'titleReversed', name: ' по названию от Я до A' },
+            { value: 'rating', name: 'по году выпуска по возрастанию' },
+            { value: 'ratingReversed', name: 'по году выпуска по убыванию' },
           ]}
         />
         <div className="main__range">
@@ -107,14 +103,14 @@ const Main = () => {
           <p>
             От {startValueRange} до {endValueRange}{' '}
           </p>
-          <Slider range value={[startValueRange, endValueRange]} min={0} max={1000} onChange={changeRangePrice} />
+          <Slider range value={[startValueRange, endValueRange]} min={1900} max={2022} onChange={changeRangePrice} />
         </div>
         <div className="main__range">
           <p>Рейтинг:</p>
           <p>
             От {startRateRange} до {endRateRange}{' '}
           </p>
-          <Slider range value={[startRateRange, endRateRange]} min={0} max={5} onChange={changeRangeRate} />
+          <Slider range value={[startRateRange, endRateRange]} min={0} max={20} onChange={changeRangeRate} />
         </div>
       </div>
       <CardList card={displayedCards} />

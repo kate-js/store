@@ -47,3 +47,12 @@
 .range__input {
   width: 100%;
 }
+
+.main__checkbox p,
+.main__checkbox label {
+    font: 1rem 'Fira Sans', sans-serif;
+}
+
+.main__checkbox input {
+    margin: .4rem;
+}
