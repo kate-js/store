@@ -5,17 +5,17 @@ import './CardItems.css';
 
 const CardItems = (props: Card) => {
   return (
-    <div className='card'>
-      <div className='card__content'>
-        <h3>{props.card.title}</h3>
-        <p>{props.card.category}</p>
-        <p>{props.card.description}</p>
-        <div className='card__image'>
+    <div className="card">
+      <div className="card__content">
+        <h3>{props.card.name}</h3>
+        <p>Количество: {props.card.count}</p>
+        <p>Год выпуска: {props.card.year}</p>
+        {/* <div className='card__image'>
           <img src={`${props.card.image}`} alt='basket' />
-        </div>
-        <p>Цена: {props.card.price}</p>
-        <p>Рейтинг: {props.card.rating.count}</p>
-        <p>Количество отзывов: {props.card.rating.rate}</p>
+        </div> */}
+        <p>Цвет: {props.card.color}</p>
+        <p>Размер: {props.card.size}</p>
+        <p>Форма: {props.card.shape}</p>
       </div>
       <MyButton>В корзину</MyButton>
     </div>

@@ -1,11 +1,12 @@
 export interface ICardItem {
-  id?: number;
-  title: string;
-  description: string;
-  category: string;
-  image: React.ImgHTMLAttributes<HTMLImageElement> | undefined;
-  price: number;
-  rating: { rate: number; count: number };
+  num: string;
+  name: string;
+  count: string;
+  year: string;
+  shape: string;
+  color: string;
+  size: string;
+  favorite: boolean;
 }
 
 export interface ICard {
@@ -14,13 +15,14 @@ export interface ICard {
 
 export interface Card {
   card: {
-    id?: number;
-    title: string;
-    description: string;
-    category: string;
-    image: React.ImgHTMLAttributes<HTMLImageElement> | undefined;
-    price: number;
-    rating: { rate: number; count: number };
+    num: string;
+    name: string;
+    count: string;
+    year: string;
+    shape: string;
+    color: string;
+    size: string;
+    favorite: boolean;
   };
 }
 
