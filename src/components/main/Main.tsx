@@ -141,9 +141,7 @@ const Main = () => {
   };
 
   const handleChangeQuery = (event: ChangeEvent<HTMLInputElement>) => {
-    console.log('event.target.value', event.target.value);
     setSearchQuery(event.target.value);
-    console.log('searchQuery', searchQuery);
   };
 
   const changeColor = (event: ChangeEvent<HTMLInputElement>) => {
@@ -179,7 +177,6 @@ const Main = () => {
   useEffect(() => {
     const query = searchQuery.toLowerCase();
     const colors: Array<string> = (Object.keys(color) as Array<keyof typeof color>).reduce((acc, key) => {
-      console.log('key', color[key]);
       if (color[key] === true) {
         (acc as string[]).push(COLORS[key]);
       }
@@ -240,6 +237,9 @@ const Main = () => {
       robin: true,
       ivan: true,
     });
+    localStorage.clear();
+    localStorage.setItem('SelectedSort', '');
+    setSelectedSort(String(localStorage.getItem('SelectedSort')));
   };
 
   const changeFavorite = () => {
