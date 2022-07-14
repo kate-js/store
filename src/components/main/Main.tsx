@@ -4,25 +4,11 @@ import 'rc-slider/assets/index.css';
 import { useState, useEffect, ChangeEvent } from 'react';
 import Slider from 'rc-slider';
 
-import { ICardItem } from '../../types';
+import { Colors, ICardItem, Manufacturer, Size } from '../../types';
 import MySelect from '../UI/MySelect';
 import CardList from './cardsList/CardList';
 import data from '../../data/products';
 import MyButton from '../UI/button/MyButton';
-
-type Colors = {
-  Yellow: boolean;
-  Green: boolean;
-  White: boolean;
-  Blue: boolean;
-  Red: boolean;
-};
-
-type Size = {
-  big: boolean;
-  middle: boolean;
-  little: boolean;
-};
 
 const COLORS = {
   Yellow: 'желтый',
@@ -36,6 +22,12 @@ const SIZE = {
   big: 'большой',
   middle: 'средний',
   little: 'малый',
+};
+
+const MANUFACTURER = {
+  snow: 'ООО Снегурочка',
+  robin: 'ООО Малиновка',
+  ivan: 'ООО Иванушка',
 };
 
 const Main = () => {
@@ -59,6 +51,12 @@ const Main = () => {
     big: true,
     middle: true,
     little: true,
+  });
+
+  const [manufacturer, setManufacturer] = useState<Manufacturer>({
+    snow: true,
+    robin: true,
+    ivan: true,
   });
 
   useEffect(() => {
@@ -123,6 +121,16 @@ const Main = () => {
     });
   };
 
+  const changeManufacturer = (event: ChangeEvent<HTMLInputElement>) => {
+    const value = event.target.id;
+    setManufacturer((prevColors) => {
+      return {
+        ...prevColors,
+        [value]: prevColors[value as keyof Manufacturer] ? false : true,
+      };
+    });
+  };
+
   useEffect(() => {
     const query = searchQuery.toLowerCase();
     const colors: Array<string> = Object.keys(color).reduce((acc, key) => {
@@ -139,6 +147,13 @@ const Main = () => {
       return acc;
     }, []);
 
+    const manufacturers: Array<string> = Object.keys(manufacturer).reduce((acc, key) => {
+      if (manufacturer[key] === true) {
+        acc.push(MANUFACTURER[key]);
+      }
+      return acc;
+    }, []);
+
     const filteredCards = cards.filter(
       (card) =>
         card.name.toLowerCase().includes(query) &&
@@ -147,10 +162,11 @@ const Main = () => {
         startRateRange <= parseInt(card.count) &&
         endRateRange >= parseInt(card.count) &&
         colors.includes(card.color) &&
-        sizes.includes(card.size)
+        sizes.includes(card.size) &&
+        manufacturers.includes(card.manufacturer)
     );
     setDisplayedCards(filteredCards);
-  }, [startValueRange, endValueRange, searchQuery, startRateRange, endRateRange, color, size]);
+  }, [startValueRange, endValueRange, searchQuery, startRateRange, endRateRange, color, size, manufacturer]);
 
   const cleanFilters = () => {
     setStartValueRange(1930);
@@ -169,6 +185,11 @@ const Main = () => {
       big: true,
       middle: true,
       little: true,
+    });
+    setManufacturer({
+      snow: true,
+      robin: true,
+      ivan: true,
     });
   };
 
@@ -223,7 +244,7 @@ const Main = () => {
             type="checkbox"
             id="Yellow"
             name="Yellow"
-            checked={Boolean(color.Yellow)}
+            checked={!!color.Yellow}
             onChange={changeColor}
             value="Yellow"
           />
@@ -280,9 +301,43 @@ const Main = () => {
             </div>
           </div>
         </div>
+        <div>
+          <div className="main__checkbox">
+            <p>Производитель:</p>
+            <div>
+              <input
+                type="checkbox"
+                id="snow"
+                name="snow"
+                checked={!!manufacturer.snow}
+                onChange={changeManufacturer}
+              />
+              <label htmlFor="snow">ООО Снегурочка</label>
+            </div>
+            <div>
+              <input
+                type="checkbox"
+                id="robin"
+                name="robin"
+                checked={!!manufacturer.robin}
+                onChange={changeManufacturer}
+              />
+              <label htmlFor="robin">ООО Малиновка</label>
+            </div>
+            <div>
+              <input
+                type="checkbox"
+                id="ivan"
+                name="ivan"
+                checked={!!manufacturer.ivan}
+                onChange={changeManufacturer}
+              />
+              <label htmlFor="ivan">ООО Иванушка</label>
+            </div>
+          </div>
+        </div>
         <MyButton onClick={cleanFilters}>Очистить</MyButton>
       </div>
-
       <CardList card={displayedCards} />
     </div>
   );
