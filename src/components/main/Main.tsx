@@ -39,6 +39,7 @@ const Main = () => {
   const [endValueRange, setEndValueRange] = useState<number>(2022);
   const [startRateRange, setStartRateRange] = useState<number>(0);
   const [endRateRange, setEndRateRange] = useState<number>(20);
+  const [favorite, setFavorite] = useState(false);
   const [color, setColor] = useState<Colors>({
     Yellow: true,
     Green: true,
@@ -46,13 +47,11 @@ const Main = () => {
     Blue: true,
     Red: true,
   });
-  const [favorite, setFavorite] = useState(false);
   const [size, setSize] = useState<Size>({
     big: true,
     middle: true,
     little: true,
   });
-
   const [manufacturer, setManufacturer] = useState<Manufacturer>({
     snow: true,
     robin: true,
@@ -62,6 +61,50 @@ const Main = () => {
   useEffect(() => {
     sortCard(selectedSort);
   }, [displayedCards]);
+
+  useEffect(() => {
+    const color = localStorage.getItem('Color');
+    if (color) {
+      setColor(JSON.parse(color));
+    }
+    const manufacturer = localStorage.getItem('Manufacturer');
+    if (manufacturer) {
+      setManufacturer(JSON.parse(manufacturer));
+    }
+    const size = localStorage.getItem('Size');
+    if (size) {
+      setSize(JSON.parse(size));
+    }
+    const favorite = JSON.parse(String(localStorage.getItem('Favorite')));
+    setFavorite(favorite);
+
+    const endRateRange = JSON.parse(String(localStorage.getItem('EndRateRange')));
+    setEndRateRange(endRateRange);
+
+    const startRateRange = JSON.parse(String(localStorage.getItem('StartRateRange')));
+    setStartRateRange(startRateRange);
+
+    const endValueRange = JSON.parse(String(localStorage.getItem('EndValueRange')));
+    setEndValueRange(endValueRange);
+
+    const startValueRange = JSON.parse(String(localStorage.getItem('StartValueRange')));
+    setStartValueRange(startValueRange);
+
+    const selectedSort = JSON.parse(String(localStorage.getItem('SelectedSort')));
+    setSelectedSort(selectedSort);
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('Color', JSON.stringify(color));
+    localStorage.setItem('Manufacturer', JSON.stringify(manufacturer));
+    localStorage.setItem('Size', JSON.stringify(size));
+    localStorage.setItem('Favorite', JSON.stringify(favorite));
+    localStorage.setItem('EndRateRange', JSON.stringify(endRateRange));
+    localStorage.setItem('StartRateRange', JSON.stringify(startRateRange));
+    localStorage.setItem('EndValueRange', JSON.stringify(endValueRange));
+    localStorage.setItem('StartValueRange', JSON.stringify(startValueRange));
+    localStorage.setItem('SelectedSort', JSON.stringify(selectedSort));
+  }, [color, manufacturer, size, favorite, endRateRange, startRateRange, endValueRange, startValueRange, selectedSort]);
 
   const sortCard: (sort: string) => void = (sort) => {
     setSelectedSort(sort);
@@ -98,7 +141,9 @@ const Main = () => {
   };
 
   const handleChangeQuery = (event: ChangeEvent<HTMLInputElement>) => {
+    console.log('event.target.value', event.target.value);
     setSearchQuery(event.target.value);
+    console.log('searchQuery', searchQuery);
   };
 
   const changeColor = (event: ChangeEvent<HTMLInputElement>) => {
@@ -133,26 +178,30 @@ const Main = () => {
 
   useEffect(() => {
     const query = searchQuery.toLowerCase();
-    const colors: Array<string> = Object.keys(color).reduce((acc, key) => {
+    const colors: Array<string> = (Object.keys(color) as Array<keyof typeof color>).reduce((acc, key) => {
+      console.log('key', color[key]);
       if (color[key] === true) {
-        acc.push(COLORS[key]);
+        (acc as string[]).push(COLORS[key]);
       }
       return acc;
     }, []);
 
-    const sizes: Array<string> = Object.keys(size).reduce((acc, key) => {
+    const sizes: Array<string> = (Object.keys(size) as Array<keyof typeof size>).reduce((acc, key) => {
       if (size[key] === true) {
-        acc.push(SIZE[key]);
+        (acc as string[]).push(SIZE[key]);
       }
       return acc;
     }, []);
 
-    const manufacturers: Array<string> = Object.keys(manufacturer).reduce((acc, key) => {
-      if (manufacturer[key] === true) {
-        acc.push(MANUFACTURER[key]);
-      }
-      return acc;
-    }, []);
+    const manufacturers: Array<string> = (Object.keys(manufacturer) as Array<keyof typeof manufacturer>).reduce(
+      (acc, key) => {
+        if (manufacturer[key] === true) {
+          (acc as string[]).push(MANUFACTURER[key]);
+        }
+        return acc;
+      },
+      []
+    );
 
     const filteredCards = cards.filter(
       (card) =>
@@ -280,7 +329,7 @@ const Main = () => {
             <label htmlFor="Red">Красный</label>
           </div>
         </div>
-        <div>
+        <div className="main__checkbox">
           <input type="checkbox" id="favorite" name="favorite" checked={favorite} onChange={changeFavorite} />
           <label htmlFor="favorite">Популярные товары</label>
         </div>
@@ -301,39 +350,25 @@ const Main = () => {
             </div>
           </div>
         </div>
-        <div>
-          <div className="main__checkbox">
-            <p>Производитель:</p>
-            <div>
-              <input
-                type="checkbox"
-                id="snow"
-                name="snow"
-                checked={!!manufacturer.snow}
-                onChange={changeManufacturer}
-              />
-              <label htmlFor="snow">ООО Снегурочка</label>
-            </div>
-            <div>
-              <input
-                type="checkbox"
-                id="robin"
-                name="robin"
-                checked={!!manufacturer.robin}
-                onChange={changeManufacturer}
-              />
-              <label htmlFor="robin">ООО Малиновка</label>
-            </div>
-            <div>
-              <input
-                type="checkbox"
-                id="ivan"
-                name="ivan"
-                checked={!!manufacturer.ivan}
-                onChange={changeManufacturer}
-              />
-              <label htmlFor="ivan">ООО Иванушка</label>
-            </div>
+        <div className="main__checkbox">
+          <p>Производитель:</p>
+          <div>
+            <input type="checkbox" id="snow" name="snow" checked={!!manufacturer.snow} onChange={changeManufacturer} />
+            <label htmlFor="snow">ООО Снегурочка</label>
+          </div>
+          <div>
+            <input
+              type="checkbox"
+              id="robin"
+              name="robin"
+              checked={!!manufacturer.robin}
+              onChange={changeManufacturer}
+            />
+            <label htmlFor="robin">ООО Малиновка</label>
+          </div>
+          <div>
+            <input type="checkbox" id="ivan" name="ivan" checked={!!manufacturer.ivan} onChange={changeManufacturer} />
+            <label htmlFor="ivan">ООО Иванушка</label>
           </div>
         </div>
         <MyButton onClick={cleanFilters}>Очистить</MyButton>
