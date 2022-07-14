@@ -7,6 +7,7 @@ const data = [
     shape: 'шар',
     color: 'желтый',
     size: 'большой',
+    manufacturer: 'ООО Снегурочка',
     favorite: false,
   },
   {
@@ -17,6 +18,7 @@ const data = [
     shape: 'шар',
     color: 'зелёный',
     size: 'большой',
+    manufacturer: 'ООО Малиновка',
     favorite: false,
   },
   {
@@ -27,6 +29,7 @@ const data = [
     shape: 'шар',
     color: 'красный',
     size: 'большой',
+    manufacturer: 'ООО Снегурочка',
     favorite: false,
   },
   {
@@ -37,6 +40,7 @@ const data = [
     shape: 'фигурка',
     color: 'красный',
     size: 'большой',
+    manufacturer: 'ООО Иванушка',
     favorite: false,
   },
   {
@@ -47,6 +51,7 @@ const data = [
     shape: 'фигурка',
     color: 'красный',
     size: 'средний',
+    manufacturer: 'ООО Снегурочка',
     favorite: true,
   },
   {
@@ -57,6 +62,7 @@ const data = [
     shape: 'шар',
     color: 'красный',
     size: 'большой',
+    manufacturer: 'ООО Иванушка',
     favorite: false,
   },
   {
@@ -67,6 +73,7 @@ const data = [
     shape: 'шар',
     color: 'белый',
     size: 'средний',
+    manufacturer: 'ООО Малиновка',
     favorite: true,
   },
   {
@@ -77,6 +84,7 @@ const data = [
     shape: 'шар',
     color: 'красный',
     size: 'большой',
+    manufacturer: 'ООО Иванушка',
     favorite: false,
   },
   {
@@ -87,6 +95,7 @@ const data = [
     shape: 'колокольчик',
     color: 'белый',
     size: 'большой',
+    manufacturer: 'ООО Малиновка',
     favorite: false,
   },
   {
@@ -97,6 +106,7 @@ const data = [
     shape: 'шар',
     color: 'белый',
     size: 'большой',
+    manufacturer: 'ООО Иванушка',
     favorite: false,
   },
   {
@@ -107,6 +117,7 @@ const data = [
     shape: 'шишка',
     color: 'белый',
     size: 'малый',
+    manufacturer: 'ООО Малиновка',
     favorite: false,
   },
   {
@@ -117,6 +128,7 @@ const data = [
     shape: 'шар',
     color: 'белый',
     size: 'большой',
+    manufacturer: 'ООО Малиновка',
     favorite: false,
   },
   {
@@ -127,6 +139,7 @@ const data = [
     shape: 'шар',
     color: 'синий',
     size: 'большой',
+    manufacturer: 'ООО Снегурочка',
     favorite: true,
   },
   {
@@ -137,6 +150,7 @@ const data = [
     shape: 'шар',
     color: 'синий',
     size: 'большой',
+    manufacturer: 'ООО Иванушка',
     favorite: true,
   },
   {
@@ -147,6 +161,7 @@ const data = [
     shape: 'колокольчик',
     color: 'синий',
     size: 'средний',
+    manufacturer: 'ООО Иванушка',
     favorite: false,
   },
   {
@@ -157,6 +172,7 @@ const data = [
     shape: 'шишка',
     color: 'синий',
     size: 'средний',
+    manufacturer: 'ООО Снегурочка',
     favorite: true,
   },
   {
@@ -167,6 +183,7 @@ const data = [
     shape: 'шишка',
     color: 'красный',
     size: 'средний',
+    manufacturer: 'ООО Снегурочка',
     favorite: false,
   },
   {
@@ -177,6 +194,7 @@ const data = [
     shape: 'шар',
     color: 'желтый',
     size: 'большой',
+    manufacturer: 'ООО Иванушка',
     favorite: false,
   },
   {
@@ -187,6 +205,7 @@ const data = [
     shape: 'шар',
     color: 'желтый',
     size: 'большой',
+    manufacturer: 'ООО Иванушка',
     favorite: false,
   },
   {
@@ -197,6 +216,7 @@ const data = [
     shape: 'шар',
     color: 'красный',
     size: 'средний',
+    manufacturer: 'ООО Снегурочка',
     favorite: true,
   },
   {
@@ -207,6 +227,7 @@ const data = [
     shape: 'шар',
     color: 'красный',
     size: 'большой',
+    manufacturer: 'ООО Малиновка',
     favorite: true,
   },
   {
@@ -217,6 +238,7 @@ const data = [
     shape: 'шишка',
     color: 'желтый',
     size: 'малый',
+    manufacturer: 'ООО Снегурочка',
     favorite: false,
   },
   {
@@ -227,6 +249,7 @@ const data = [
     shape: 'колокольчик',
     color: 'желтый',
     size: 'большой',
+    manufacturer: 'ООО Снегурочка',
     favorite: false,
   },
   {
@@ -237,6 +260,7 @@ const data = [
     shape: 'снежинка',
     color: 'белый',
     size: 'большой',
+    manufacturer: 'ООО Малиновка',
     favorite: false,
   },
   {
@@ -247,6 +271,7 @@ const data = [
     shape: 'шар',
     color: 'красный',
     size: 'большой',
+    manufacturer: 'ООО Иванушка',
     favorite: false,
   },
   {
@@ -257,6 +282,7 @@ const data = [
     shape: 'шар',
     color: 'желтый',
     size: 'большой',
+    manufacturer: 'ООО Малиновка',
     favorite: false,
   },
   {
@@ -267,6 +293,7 @@ const data = [
     shape: 'шар',
     color: 'красный',
     size: 'большой',
+    manufacturer: 'ООО Иванушка',
     favorite: false,
   },
   {
@@ -277,6 +304,7 @@ const data = [
     shape: 'шар',
     color: 'красный',
     size: 'большой',
+    manufacturer: 'ООО Иванушка',
     favorite: false,
   },
   {
@@ -287,6 +315,7 @@ const data = [
     shape: 'шар',
     color: 'желтый',
     size: 'большой',
+    manufacturer: 'ООО Снегурочка',
     favorite: true,
   },
   {
@@ -297,6 +326,7 @@ const data = [
     shape: 'шар',
     color: 'желтый',
     size: 'большой',
+    manufacturer: 'ООО Малиновка',
     favorite: true,
   },
   {
@@ -307,6 +337,7 @@ const data = [
     shape: 'шар',
     color: 'красный',
     size: 'большой',
+    manufacturer: 'ООО Иванушка',
     favorite: false,
   },
   {
@@ -317,6 +348,7 @@ const data = [
     shape: 'шар',
     color: 'синий',
     size: 'большой',
+    manufacturer: 'ООО Малиновка',
     favorite: false,
   },
   {
@@ -327,6 +359,7 @@ const data = [
     shape: 'шар',
     color: 'синий',
     size: 'средний',
+    manufacturer: 'ООО Иванушка',
     favorite: false,
   },
   {
@@ -337,6 +370,7 @@ const data = [
     shape: 'шар',
     color: 'зелёный',
     size: 'большой',
+    manufacturer: 'ООО Малиновка',
     favorite: false,
   },
   {
@@ -347,6 +381,7 @@ const data = [
     shape: 'фигурка',
     color: 'желтый',
     size: 'средний',
+    manufacturer: 'ООО Иванушка',
     favorite: true,
   },
   {
@@ -357,6 +392,7 @@ const data = [
     shape: 'шар',
     color: 'синий',
     size: 'большой',
+    manufacturer: 'ООО Иванушка',
     favorite: false,
   },
   {
@@ -367,6 +403,7 @@ const data = [
     shape: 'шар',
     color: 'зелёный',
     size: 'большой',
+    manufacturer: 'ООО Снегурочка',
     favorite: false,
   },
   {
@@ -377,6 +414,7 @@ const data = [
     shape: 'шар',
     color: 'синий',
     size: 'большой',
+    manufacturer: 'ООО Иванушка',
     favorite: false,
   },
   {
@@ -387,6 +425,7 @@ const data = [
     shape: 'снежинка',
     color: 'красный',
     size: 'большой',
+    manufacturer: 'ООО Малиновка',
     favorite: false,
   },
   {
@@ -397,6 +436,7 @@ const data = [
     shape: 'снежинка',
     color: 'желтый',
     size: 'большой',
+    manufacturer: 'ООО Малиновка',
     favorite: false,
   },
   {
@@ -407,6 +447,7 @@ const data = [
     shape: 'снежинка',
     color: 'белый',
     size: 'большой',
+    manufacturer: 'ООО Снегурочка',
     favorite: false,
   },
   {
@@ -417,6 +458,7 @@ const data = [
     shape: 'шар',
     color: 'зелёный',
     size: 'средний',
+    manufacturer: 'ООО Малиновка',
     favorite: false,
   },
   {
@@ -427,6 +469,7 @@ const data = [
     shape: 'снежинка',
     color: 'красный',
     size: 'большой',
+    manufacturer: 'ООО Иванушка',
     favorite: false,
   },
   {
@@ -437,6 +480,7 @@ const data = [
     shape: 'фигурка',
     color: 'красный',
     size: 'средний',
+    manufacturer: 'ООО Малиновка',
     favorite: true,
   },
   {
@@ -447,6 +491,7 @@ const data = [
     shape: 'снежинка',
     color: 'белый',
     size: 'большой',
+    manufacturer: 'ООО Снегурочка',
     favorite: false,
   },
   {
@@ -457,6 +502,7 @@ const data = [
     shape: 'фигурка',
     color: 'красный',
     size: 'малый',
+    manufacturer: 'ООО Снегурочка',
     favorite: false,
   },
   {
@@ -467,6 +513,7 @@ const data = [
     shape: 'фигурка',
     color: 'красный',
     size: 'малый',
+    manufacturer: 'ООО Малиновка',
     favorite: false,
   },
   {
@@ -477,6 +524,7 @@ const data = [
     shape: 'шар',
     color: 'желтый',
     size: 'большой',
+    manufacturer: 'ООО Иванушка',
     favorite: false,
   },
   {
@@ -487,6 +535,7 @@ const data = [
     shape: 'снежинка',
     color: 'желтый',
     size: 'большой',
+    manufacturer: 'ООО Малиновка',
     favorite: false,
   },
   {
@@ -497,6 +546,7 @@ const data = [
     shape: 'колокольчик',
     color: 'красный',
     size: 'большой',
+    manufacturer: 'ООО Иванушка',
     favorite: false,
   },
   {
@@ -507,6 +557,7 @@ const data = [
     shape: 'шишка',
     color: 'красный',
     size: 'малый',
+    manufacturer: 'ООО Малиновка',
     favorite: false,
   },
   {
@@ -517,6 +568,7 @@ const data = [
     shape: 'шар',
     color: 'красный',
     size: 'большой',
+    manufacturer: 'ООО Малиновка',
     favorite: true,
   },
   {
@@ -527,6 +579,7 @@ const data = [
     shape: 'снежинка',
     color: 'белый',
     size: 'большой',
+    manufacturer: 'ООО Снегурочка',
     favorite: false,
   },
   {
@@ -537,6 +590,7 @@ const data = [
     shape: 'шар',
     color: 'зелёный',
     size: 'большой',
+    manufacturer: 'ООО Иванушка',
     favorite: false,
   },
   {
@@ -547,6 +601,7 @@ const data = [
     shape: 'фигурка',
     color: 'желтый',
     size: 'большой',
+    manufacturer: 'ООО Малиновка',
     favorite: false,
   },
   {
@@ -557,6 +612,7 @@ const data = [
     shape: 'фигурка',
     color: 'желтый',
     size: 'малый',
+    manufacturer: 'ООО Малиновка',
     favorite: false,
   },
   {
@@ -567,6 +623,7 @@ const data = [
     shape: 'фигурка',
     color: 'желтый',
     size: 'средний',
+    manufacturer: 'ООО Иванушка',
     favorite: false,
   },
   {
@@ -577,6 +634,7 @@ const data = [
     shape: 'фигурка',
     color: 'белый',
     size: 'средний',
+    manufacturer: 'ООО Иванушка',
     favorite: false,
   },
   {
@@ -587,6 +645,7 @@ const data = [
     shape: 'шар',
     color: 'желтый',
     size: 'средний',
+    manufacturer: 'ООО Снегурочка',
     favorite: false,
   },
   {
@@ -597,6 +656,7 @@ const data = [
     shape: 'фигурка',
     color: 'белый',
     size: 'средний',
+    manufacturer: 'ООО Снегурочка',
     favorite: true,
   },
 ];
