@@ -18,12 +18,24 @@ type Colors = {
   Red: boolean;
 };
 
+type Size = {
+  big: boolean;
+  middle: boolean;
+  little: boolean;
+};
+
 const COLORS = {
   Yellow: 'желтый',
   Green: 'зелёный',
   White: 'белый',
   Blue: 'синий',
   Red: 'красный',
+};
+
+const SIZE = {
+  big: 'большой',
+  middle: 'средний',
+  little: 'малый',
 };
 
 const Main = () => {
@@ -43,6 +55,11 @@ const Main = () => {
     Red: true,
   });
   const [favorite, setFavorite] = useState(false);
+  const [size, setSize] = useState<Size>({
+    big: true,
+    middle: true,
+    little: true,
+  });
 
   useEffect(() => {
     sortCard(selectedSort);
@@ -96,11 +113,28 @@ const Main = () => {
     });
   };
 
+  const changeSize = (event: ChangeEvent<HTMLInputElement>) => {
+    const value = event.target.id;
+    setSize((prevColors) => {
+      return {
+        ...prevColors,
+        [value]: prevColors[value as keyof Size] ? false : true,
+      };
+    });
+  };
+
   useEffect(() => {
     const query = searchQuery.toLowerCase();
     const colors: Array<string> = Object.keys(color).reduce((acc, key) => {
       if (color[key] === true) {
         acc.push(COLORS[key]);
+      }
+      return acc;
+    }, []);
+
+    const sizes: Array<string> = Object.keys(size).reduce((acc, key) => {
+      if (size[key] === true) {
+        acc.push(SIZE[key]);
       }
       return acc;
     }, []);
@@ -112,10 +146,11 @@ const Main = () => {
         parseInt(card.year) <= endValueRange &&
         startRateRange <= parseInt(card.count) &&
         endRateRange >= parseInt(card.count) &&
-        colors.includes(card.color)
+        colors.includes(card.color) &&
+        sizes.includes(card.size)
     );
     setDisplayedCards(filteredCards);
-  }, [startValueRange, endValueRange, searchQuery, startRateRange, endRateRange, color]);
+  }, [startValueRange, endValueRange, searchQuery, startRateRange, endRateRange, color, size]);
 
   const cleanFilters = () => {
     setStartValueRange(1930);
@@ -130,6 +165,11 @@ const Main = () => {
       Red: true,
     });
     setFavorite(false);
+    setSize({
+      big: true,
+      middle: true,
+      little: true,
+    });
   };
 
   const changeFavorite = () => {
@@ -222,6 +262,23 @@ const Main = () => {
         <div>
           <input type="checkbox" id="favorite" name="favorite" checked={favorite} onChange={changeFavorite} />
           <label htmlFor="favorite">Популярные товары</label>
+        </div>
+        <div>
+          <div className="main__checkbox">
+            <p>Размер:</p>
+            <div>
+              <input type="checkbox" id="big" name="big" checked={!!size.big} onChange={changeSize} />
+              <label htmlFor="big">Большой</label>
+            </div>
+            <div>
+              <input type="checkbox" id="middle" name="middle" checked={!!size.middle} onChange={changeSize} />
+              <label htmlFor="middle">Средний</label>
+            </div>
+            <div>
+              <input type="checkbox" id="little" name="little" checked={!!size.little} onChange={changeSize} />
+              <label htmlFor="little">Маленький</label>
+            </div>
+          </div>
         </div>
         <MyButton onClick={cleanFilters}>Очистить</MyButton>
       </div>
