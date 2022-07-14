@@ -8,6 +8,7 @@ import { ICardItem } from '../../types';
 import MySelect from '../UI/MySelect';
 import CardList from './cardsList/CardList';
 import data from '../../data/products';
+import MyButton from '../UI/button/MyButton';
 
 type Colors = {
   Yellow: boolean;
@@ -42,11 +43,18 @@ const Main = () => {
     Red: true,
   });
 
+  useEffect(() => {
+    sortCard(selectedSort);
+  }, [displayedCards]);
+
   const sortCard: (sort: string) => void = (sort) => {
     setSelectedSort(sort);
     switch (sort) {
       case 'title':
+        console.log('ok');
+        console.log('1', displayedCards.length);
         setDisplayedCards([...displayedCards].sort((a, b) => a.name.localeCompare(b.name)));
+        console.log('2', displayedCards.length);
         break;
       case 'titleReversed':
         setDisplayedCards([...displayedCards].sort((a, b) => b.name.localeCompare(a.name)));
@@ -108,9 +116,22 @@ const Main = () => {
         endRateRange >= parseInt(card.count) &&
         colors.includes(card.color)
     );
-
     setDisplayedCards(filteredCards);
   }, [startValueRange, endValueRange, searchQuery, startRateRange, endRateRange, color]);
+
+  const cleanFilters = () => {
+    setStartValueRange(1930);
+    setEndValueRange(2022);
+    setStartRateRange(0);
+    setEndRateRange(20);
+    setColor({
+      Yellow: true,
+      Green: true,
+      White: true,
+      Blue: true,
+      Red: true,
+    });
+  };
 
   return (
     <div className="main">
@@ -158,23 +179,38 @@ const Main = () => {
             value="Yellow"
           />
           <label htmlFor="Yellow">Желтый</label>
+          <div>
+            <input
+              type="checkbox"
+              id="Green"
+              name="Green"
+              value="Green"
+              checked={!!color.Green}
+              onChange={changeColor}
+            />
+            <label htmlFor="Green">Зеленый</label>
+          </div>
+          <div>
+            <input
+              type="checkbox"
+              id="White"
+              name="White"
+              value="White"
+              checked={!!color.White}
+              onChange={changeColor}
+            />
+            <label htmlFor="White">Белый</label>
+          </div>
+          <div>
+            <input type="checkbox" id="Blue" name="Blue" value="Blue" checked={!!color.Blue} onChange={changeColor} />
+            <label htmlFor="Blue">Синий</label>
+          </div>
+          <div>
+            <input type="checkbox" id="Red" name="Red" value="Red" checked={!!color.Red} onChange={changeColor} />
+            <label htmlFor="Red">Красный</label>
+          </div>
         </div>
-        <div>
-          <input type="checkbox" id="Green" name="Green" value="Green" checked={!!color.Green} onChange={changeColor} />
-          <label htmlFor="Green">Зеленый</label>
-        </div>
-        <div>
-          <input type="checkbox" id="White" name="White" value="White" checked={!!color.White} onChange={changeColor} />
-          <label htmlFor="White">Белый</label>
-        </div>
-        <div>
-          <input type="checkbox" id="Blue" name="Blue" value="Blue" checked={!!color.Blue} onChange={changeColor} />
-          <label htmlFor="Blue">Синий</label>
-        </div>
-        <div>
-          <input type="checkbox" id="Red" name="Red" value="Red" checked={!!color.Red} onChange={changeColor} />
-          <label htmlFor="Red">Красный</label>
-        </div>
+        <MyButton onClick={cleanFilters}>Очистить</MyButton>
       </div>
 
       <CardList card={displayedCards} />
