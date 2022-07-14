@@ -42,6 +42,7 @@ const Main = () => {
     Blue: true,
     Red: true,
   });
+  const [favorite, setFavorite] = useState(false);
 
   useEffect(() => {
     sortCard(selectedSort);
@@ -51,10 +52,7 @@ const Main = () => {
     setSelectedSort(sort);
     switch (sort) {
       case 'title':
-        console.log('ok');
-        console.log('1', displayedCards.length);
         setDisplayedCards([...displayedCards].sort((a, b) => a.name.localeCompare(b.name)));
-        console.log('2', displayedCards.length);
         break;
       case 'titleReversed':
         setDisplayedCards([...displayedCards].sort((a, b) => b.name.localeCompare(a.name)));
@@ -131,6 +129,17 @@ const Main = () => {
       Blue: true,
       Red: true,
     });
+    setFavorite(false);
+  };
+
+  const changeFavorite = () => {
+    if (favorite) {
+      setDisplayedCards(cards);
+      setFavorite(false);
+    } else {
+      setDisplayedCards([...displayedCards].filter((card) => card.favorite === true));
+      setFavorite(true);
+    }
   };
 
   return (
@@ -209,6 +218,10 @@ const Main = () => {
             <input type="checkbox" id="Red" name="Red" value="Red" checked={!!color.Red} onChange={changeColor} />
             <label htmlFor="Red">Красный</label>
           </div>
+        </div>
+        <div>
+          <input type="checkbox" id="favorite" name="favorite" checked={favorite} onChange={changeFavorite} />
+          <label htmlFor="favorite">Популярные товары</label>
         </div>
         <MyButton onClick={cleanFilters}>Очистить</MyButton>
       </div>
