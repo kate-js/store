@@ -6,6 +6,7 @@ export interface ICardItem {
   shape: string;
   color: string;
   size: string;
+  manufacturer: string;
   favorite: boolean;
 }
 
@@ -22,6 +23,7 @@ export interface Card {
     shape: string;
     color: string;
     size: string;
+    manufacturer: string;
     favorite: boolean;
   };
 }
@@ -42,4 +44,24 @@ export interface IResponse {
   data: ICardItem[];
   status: number;
   statusText: string;
+}
+
+export interface Colors {
+  Yellow: boolean;
+  Green: boolean;
+  White: boolean;
+  Blue: boolean;
+  Red: boolean;
+}
+
+export interface Size {
+  big: boolean;
+  middle: boolean;
+  little: boolean;
+}
+
+export interface Manufacturer {
+  snow: boolean;
+  robin: boolean;
+  ivan: boolean;
 }
