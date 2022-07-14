@@ -17,6 +17,14 @@ type Colors = {
   Red: boolean;
 };
 
+const COLORS = {
+  Yellow: 'желтый',
+  Green: 'зелёный',
+  White: 'белый',
+  Blue: 'синий',
+  Red: 'красный',
+};
+
 const Main = () => {
   const [cards, setCards] = useState<ICardItem[]>(data);
   const [selectedSort, setSelectedSort] = useState<string>('');
@@ -82,24 +90,15 @@ const Main = () => {
     });
   };
 
-  let valueRed = '';
-  let valueYellow = '';
-  let valueWhite = '';
-  let valueGreen = '';
-  let valueBlue = '';
-
-  const updateColor = function () {
-    color.Red ? (valueRed = '') : (valueRed = 'красный');
-    color.Yellow ? (valueYellow = '') : (valueYellow = 'желтый');
-    color.White ? (valueWhite = '') : (valueWhite = 'белый');
-    color.Green ? (valueGreen = '') : (valueGreen = 'зелёный');
-    color.Blue ? (valueBlue = '') : (valueBlue = 'синий');
-  };
-
   useEffect(() => {
-    updateColor();
-    console.log(valueRed, valueYellow, valueWhite, valueGreen, valueBlue);
     const query = searchQuery.toLowerCase();
+    const colors: Array<string> = Object.keys(color).reduce((acc, key) => {
+      if (color[key] === true) {
+        acc.push(COLORS[key]);
+      }
+      return acc;
+    }, []);
+
     const filteredCards = cards.filter(
       (card) =>
         card.name.toLowerCase().includes(query) &&
@@ -107,13 +106,9 @@ const Main = () => {
         parseInt(card.year) <= endValueRange &&
         startRateRange <= parseInt(card.count) &&
         endRateRange >= parseInt(card.count) &&
-        card.color !== valueRed &&
-        card.color !== valueYellow &&
-        card.color !== valueGreen &&
-        card.color !== valueBlue &&
-        card.color !== valueWhite
+        colors.includes(card.color)
     );
-    console.log(filteredCards.length);
+
     setDisplayedCards(filteredCards);
   }, [startValueRange, endValueRange, searchQuery, startRateRange, endRateRange, color]);
 
