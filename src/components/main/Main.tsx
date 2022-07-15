@@ -30,7 +30,7 @@ const MANUFACTURER = {
   ivan: 'ООО Иванушка',
 };
 
-const Main = () => {
+const Main = (props: { addToCart: (num: string) => void; removeFromCart: (num: string) => void }) => {
   const [cards, setCards] = useState<ICardItem[]>(data);
   const [selectedSort, setSelectedSort] = useState<string>('');
   const [searchQuery, setSearchQuery] = useState<string>('');
@@ -373,7 +373,7 @@ const Main = () => {
         </div>
         <MyButton onClick={cleanFilters}>Очистить</MyButton>
       </div>
-      <CardList card={displayedCards} />
+      <CardList card={displayedCards} addToCart={props.addToCart} removeFromCart={props.removeFromCart} />
     </div>
   );
 };

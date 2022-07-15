@@ -1,9 +1,25 @@
-import React from 'react';
-import { Card } from '../../../../types';
-import MyButton from '../../../UI/button/MyButton';
+import React, { useState } from 'react';
+
 import './CardItems.css';
 
-const CardItems = (props: Card) => {
+import { ICardItem } from '../../../../types';
+import MyButton from '../../../UI/button/MyButton';
+
+const CardItems = (props: {
+  card: ICardItem;
+  addToCart: (num: string) => void;
+  removeFromCart: (num: string) => void;
+}) => {
+  const [button, setButton] = useState(false);
+  const [valueButton, setValueButton] = useState('Добавить в корзину');
+
+  const changeBasketValue = () => {
+    console.log('add/remove', props.card.num);
+    button ? setValueButton('Добавить в корзину') : setValueButton('В корзине');
+    button ? props.removeFromCart(props.card.num) : props.addToCart(props.card.num);
+    button ? setButton(false) : setButton(true);
+  };
+
   return (
     <div className="card">
       <div className="card__content">
@@ -15,7 +31,9 @@ const CardItems = (props: Card) => {
         <p>Год выпуска: {props.card.year}</p>
         <p>Производитель: {props.card.manufacturer}</p>
       </div>
-      <MyButton>В корзину</MyButton>
+      <MyButton onClick={changeBasketValue} value={button} className={button ? 'button__basket' : ''}>
+        {valueButton}
+      </MyButton>
     </div>
   );
 };

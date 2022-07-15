@@ -1,11 +1,17 @@
-import { ICard, ICardItem } from '../../../types';
+import { ICardItem } from '../../../types';
 import CardItems from './card/CardItems';
 
-const CardList = (props: ICard) => {
+const CardList = (props: {
+  card: ICardItem[];
+  addToCart: (num: string) => void;
+  removeFromCart: (num: string) => void;
+}) => {
   return (
     <div className="card__section">
       {props.card.length !== 0 ? (
-        props.card.map((card: ICardItem) => <CardItems card={card} key={card.num} />)
+        props.card.map((card: ICardItem) => (
+          <CardItems card={card} key={card.num} addToCart={props.addToCart} removeFromCart={props.removeFromCart} />
+        ))
       ) : (
         <h3>К сожалению, нет товара, соответствующего вашим фильтрам!</h3>
       )}
