@@ -1,17 +1,19 @@
 import './header.css';
+import Logo from '../../assets/balls.png';
+import Cart from '../../assets/cart.png';
 
 const Header = (props: { cartLength: number }) => {
   return (
     <div className="header">
-      <ul className="header__nav">
-        <li>Каталог</li>
-        <li>О компании</li>
-        <li>Правила</li>
-        <li>Новости</li>
-        <li>Контакты</li>
-      </ul>
+      <img src={Logo} alt="logo" />
+      <h2>Магазин елочных игрушек</h2>
       <div className="header__cart">
-        <span>{props.cartLength}</span>
+        <div>
+          <img src={Cart} alt="cart" />
+        </div>
+        <div>
+          <span>{props.cartLength}</span>
+        </div>
       </div>
     </div>
   );

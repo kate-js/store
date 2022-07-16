@@ -30,7 +30,11 @@ const MANUFACTURER = {
   ivan: 'ООО Иванушка',
 };
 
-const Main = (props: { addToCart: (num: string) => void; removeFromCart: (num: string) => void }) => {
+const Main = (props: {
+  addToCart: (num: string) => void;
+  removeFromCart: (num: string) => void;
+  cartFull: boolean;
+}) => {
   const [cards, setCards] = useState<ICardItem[]>(data);
   const [selectedSort, setSelectedSort] = useState<string>('');
   const [searchQuery, setSearchQuery] = useState<string>('');
@@ -257,6 +261,7 @@ const Main = (props: { addToCart: (num: string) => void; removeFromCart: (num: s
       <div className="main__filter">
         <input
           type="search"
+          className="main__search"
           placeholder="Введите название товара"
           value={searchQuery}
           onChange={handleChangeQuery}
@@ -373,7 +378,12 @@ const Main = (props: { addToCart: (num: string) => void; removeFromCart: (num: s
         </div>
         <MyButton onClick={cleanFilters}>Очистить</MyButton>
       </div>
-      <CardList card={displayedCards} addToCart={props.addToCart} removeFromCart={props.removeFromCart} />
+      <CardList
+        card={displayedCards}
+        addToCart={props.addToCart}
+        removeFromCart={props.removeFromCart}
+        cartFull={props.cartFull}
+      />
     </div>
   );
 };

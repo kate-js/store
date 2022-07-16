@@ -9,15 +9,20 @@ const CardItems = (props: {
   card: ICardItem;
   addToCart: (num: string) => void;
   removeFromCart: (num: string) => void;
+  cartFull: boolean;
 }) => {
   const [button, setButton] = useState(false);
   const [valueButton, setValueButton] = useState('Добавить в корзину');
 
   const changeBasketValue = () => {
-    console.log('add/remove', props.card.num);
-    button ? setValueButton('Добавить в корзину') : setValueButton('В корзине');
-    button ? props.removeFromCart(props.card.num) : props.addToCart(props.card.num);
-    button ? setButton(false) : setButton(true);
+    if (props.cartFull) {
+      button ? props.removeFromCart(props.card.num) : props.addToCart(props.card.num);
+      setButton(false);
+    } else {
+      button ? setValueButton('Добавить в корзину') : setValueButton('В корзине');
+      button ? props.removeFromCart(props.card.num) : props.addToCart(props.card.num);
+      button ? setButton(false) : setButton(true);
+    }
   };
 
   return (
