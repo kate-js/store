@@ -1,23 +1,29 @@
 .header {
   padding: 20px;
+  height: 60px;
+  align-items: center;
   display: flex;
-  background-color: green;
+  background-color: rgba(124, 218, 247);
   justify-content: space-between;
-}
-
-.header__nav {
-  display: flex;
-  list-style: none;
-}
-
-.header__nav li {
-  padding-right: 20px;
 }
 
 .header__nav li:last-child {
   padding-right: 0;
 }
 
-.header__basket img{
-  width: 50px;
+.header__cart{
+  font-size: 3em;
+  display: flex;
+  align-items: flex-end;
+}
+
+.header img {
+  width: 80px;
+  height: 80px;
+}
+
+.header__cart img {
+  width: 70px;
+  height: 70px;
+  position: relative;
 }
