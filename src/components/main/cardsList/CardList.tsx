@@ -5,7 +5,7 @@ const CardList = (props: {
   card: ICardItem[];
   addToCart: (num: string) => void;
   removeFromCart: (num: string) => void;
-  cartFull: boolean;
+  cart: string[];
 }) => {
   return (
     <div className="card__section">
@@ -16,7 +16,7 @@ const CardList = (props: {
             key={card.num}
             addToCart={props.addToCart}
             removeFromCart={props.removeFromCart}
-            cartFull={props.cartFull}
+            cart={props.cart}
           />
         ))
       ) : (

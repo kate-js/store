@@ -9,19 +9,22 @@ const CardItems = (props: {
   card: ICardItem;
   addToCart: (num: string) => void;
   removeFromCart: (num: string) => void;
-  cartFull: boolean;
+  cart: string[];
 }) => {
-  const [button, setButton] = useState(false);
   const [valueButton, setValueButton] = useState('Добавить в корзину');
 
   const changeBasketValue = () => {
-    if (props.cartFull) {
-      button ? props.removeFromCart(props.card.num) : props.addToCart(props.card.num);
-      setButton(false);
+    console.log(props.cart.length);
+    if (props.cart.includes(props.card.num)) {
+      props.removeFromCart(props.card.num);
+      setValueButton('Добавить в корзину');
+    } else if (props.cart.length + 1 > 5) {
+      alert(`Корзина переполнена(максимум 5 товаров)`);
+      props.removeFromCart(props.card.num);
+      setValueButton('Добавить в корзину');
     } else {
-      button ? setValueButton('Добавить в корзину') : setValueButton('В корзине');
-      button ? props.removeFromCart(props.card.num) : props.addToCart(props.card.num);
-      button ? setButton(false) : setButton(true);
+      setValueButton('В корзине');
+      props.addToCart(props.card.num);
     }
   };
 
@@ -36,9 +39,7 @@ const CardItems = (props: {
         <p>Год выпуска: {props.card.year}</p>
         <p>Производитель: {props.card.manufacturer}</p>
       </div>
-      <MyButton onClick={changeBasketValue} value={button} className={button ? 'button__basket' : ''}>
-        {valueButton}
-      </MyButton>
+      <MyButton onClick={changeBasketValue}>{valueButton}</MyButton>
     </div>
   );
 };
