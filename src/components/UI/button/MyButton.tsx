@@ -1,8 +1,14 @@
+import React, { ReactNode } from 'react';
 import './MyButton.css';
 
-const MyButton = ({ children, ...props }) => {
+interface Props {
+  children?: ReactNode;
+  onClick: () => void;
+}
+
+const MyButton = ({ children, ...props }: Props) => {
   return (
-    <button {...props} className='button'>
+    <button {...props} className="button">
       {children}
     </button>
   );
