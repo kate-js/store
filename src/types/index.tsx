@@ -67,3 +67,11 @@ export interface Manufacturer {
   robin: boolean;
   ivan: boolean;
 }
+
+export type pictures = {
+  Green: string;
+  Yellow: string;
+  Blue: string;
+  White: string;
+  Red: string;
+};
