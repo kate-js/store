@@ -7,8 +7,9 @@ import Slider from 'rc-slider';
 import { Colors, ICardItem, Manufacturer, Size } from '../../types';
 import MySelect from '../UI/MySelect';
 import CardList from './cardsList/CardList';
-import data from '../../data/products';
 import MyButton from '../UI/button/MyButton';
+
+import cards from '../../data/products';
 
 const COLORS = {
   Yellow: 'желтый',
@@ -36,10 +37,9 @@ const Main = (props: {
   cart: string[];
   cleanup: () => void;
 }) => {
-  const [cards, setCards] = useState<ICardItem[]>(data);
   const [selectedSort, setSelectedSort] = useState<string>('');
   const [searchQuery, setSearchQuery] = useState<string>('');
-  const [displayedCards, setDisplayedCards] = useState<ICardItem[]>(data);
+  const [displayedCards, setDisplayedCards] = useState<ICardItem[]>(cards);
   const [startValueRange, setStartValueRange] = useState<number>(1930);
   const [endValueRange, setEndValueRange] = useState<number>(2022);
   const [startRateRange, setStartRateRange] = useState<number>(0);
