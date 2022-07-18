@@ -16,6 +16,7 @@ describe('cart', async () => {
           size: 'big',
           manufacturer: 'jfjfj',
           favorite: false,
+          image: 'Green',
         }}
         addToCart={() => console.log('ok')}
         removeFromCart={() => console.log('ok')}
