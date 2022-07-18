@@ -9,6 +9,7 @@ const data = [
     size: 'большой',
     manufacturer: 'ООО Снегурочка',
     favorite: false,
+    image: 'Yellow',
   },
   {
     num: '2',
@@ -20,6 +21,7 @@ const data = [
     size: 'большой',
     manufacturer: 'ООО Малиновка',
     favorite: false,
+    image: 'Green',
   },
   {
     num: '3',
@@ -31,6 +33,7 @@ const data = [
     size: 'большой',
     manufacturer: 'ООО Снегурочка',
     favorite: false,
+    image: 'Red',
   },
   {
     num: '4',
@@ -42,6 +45,7 @@ const data = [
     size: 'большой',
     manufacturer: 'ООО Иванушка',
     favorite: false,
+    image: 'Red',
   },
   {
     num: '5',
@@ -53,6 +57,7 @@ const data = [
     size: 'средний',
     manufacturer: 'ООО Снегурочка',
     favorite: true,
+    image: 'Red',
   },
   {
     num: '6',
@@ -64,6 +69,7 @@ const data = [
     size: 'большой',
     manufacturer: 'ООО Иванушка',
     favorite: false,
+    image: 'Red',
   },
   {
     num: '7',
@@ -75,6 +81,7 @@ const data = [
     size: 'средний',
     manufacturer: 'ООО Малиновка',
     favorite: true,
+    image: 'White',
   },
   {
     num: '8',
@@ -86,6 +93,7 @@ const data = [
     size: 'большой',
     manufacturer: 'ООО Иванушка',
     favorite: false,
+    image: 'Red',
   },
   {
     num: '9',
@@ -97,6 +105,7 @@ const data = [
     size: 'большой',
     manufacturer: 'ООО Малиновка',
     favorite: false,
+    image: 'White',
   },
   {
     num: '10',
@@ -108,6 +117,7 @@ const data = [
     size: 'большой',
     manufacturer: 'ООО Иванушка',
     favorite: false,
+    image: 'White',
   },
   {
     num: '11',
@@ -119,6 +129,7 @@ const data = [
     size: 'малый',
     manufacturer: 'ООО Малиновка',
     favorite: false,
+    image: 'White',
   },
   {
     num: '12',
@@ -130,6 +141,7 @@ const data = [
     size: 'большой',
     manufacturer: 'ООО Малиновка',
     favorite: false,
+    image: 'White',
   },
   {
     num: '13',
@@ -141,6 +153,7 @@ const data = [
     size: 'большой',
     manufacturer: 'ООО Снегурочка',
     favorite: true,
+    image: 'Blue',
   },
   {
     num: '14',
@@ -152,6 +165,7 @@ const data = [
     size: 'большой',
     manufacturer: 'ООО Иванушка',
     favorite: true,
+    image: 'Blue',
   },
   {
     num: '15',
@@ -163,6 +177,7 @@ const data = [
     size: 'средний',
     manufacturer: 'ООО Иванушка',
     favorite: false,
+    image: 'Blue',
   },
   {
     num: '16',
@@ -174,6 +189,7 @@ const data = [
     size: 'средний',
     manufacturer: 'ООО Снегурочка',
     favorite: true,
+    image: 'Blue',
   },
   {
     num: '17',
@@ -185,6 +201,7 @@ const data = [
     size: 'средний',
     manufacturer: 'ООО Снегурочка',
     favorite: false,
+    image: 'Red',
   },
   {
     num: '18',
@@ -196,6 +213,7 @@ const data = [
     size: 'большой',
     manufacturer: 'ООО Иванушка',
     favorite: false,
+    image: 'Yellow',
   },
   {
     num: '19',
@@ -207,6 +225,7 @@ const data = [
     size: 'большой',
     manufacturer: 'ООО Иванушка',
     favorite: false,
+    image: 'Yellow',
   },
   {
     num: '20',
@@ -218,6 +237,7 @@ const data = [
     size: 'средний',
     manufacturer: 'ООО Снегурочка',
     favorite: true,
+    image: 'Red',
   },
   {
     num: '21',
@@ -229,6 +249,7 @@ const data = [
     size: 'большой',
     manufacturer: 'ООО Малиновка',
     favorite: true,
+    image: 'Red',
   },
   {
     num: '22',
@@ -240,6 +261,7 @@ const data = [
     size: 'малый',
     manufacturer: 'ООО Снегурочка',
     favorite: false,
+    image: 'Yellow',
   },
   {
     num: '23',
@@ -251,6 +273,7 @@ const data = [
     size: 'большой',
     manufacturer: 'ООО Снегурочка',
     favorite: false,
+    image: 'Yellow',
   },
   {
     num: '24',
@@ -262,6 +285,7 @@ const data = [
     size: 'большой',
     manufacturer: 'ООО Малиновка',
     favorite: false,
+    image: 'White',
   },
   {
     num: '25',
@@ -273,6 +297,7 @@ const data = [
     size: 'большой',
     manufacturer: 'ООО Иванушка',
     favorite: false,
+    image: 'Red',
   },
   {
     num: '26',
@@ -284,6 +309,7 @@ const data = [
     size: 'большой',
     manufacturer: 'ООО Малиновка',
     favorite: false,
+    image: 'Yellow',
   },
   {
     num: '27',
@@ -295,6 +321,7 @@ const data = [
     size: 'большой',
     manufacturer: 'ООО Иванушка',
     favorite: false,
+    image: 'Red',
   },
   {
     num: '28',
@@ -306,6 +333,7 @@ const data = [
     size: 'большой',
     manufacturer: 'ООО Иванушка',
     favorite: false,
+    image: 'Red',
   },
   {
     num: '29',
@@ -317,6 +345,7 @@ const data = [
     size: 'большой',
     manufacturer: 'ООО Снегурочка',
     favorite: true,
+    image: 'Yellow',
   },
   {
     num: '30',
@@ -328,6 +357,7 @@ const data = [
     size: 'большой',
     manufacturer: 'ООО Малиновка',
     favorite: true,
+    image: 'Yellow',
   },
   {
     num: '31',
@@ -339,6 +369,7 @@ const data = [
     size: 'большой',
     manufacturer: 'ООО Иванушка',
     favorite: false,
+    image: 'Red',
   },
   {
     num: '32',
@@ -350,6 +381,7 @@ const data = [
     size: 'большой',
     manufacturer: 'ООО Малиновка',
     favorite: false,
+    image: 'Blue',
   },
   {
     num: '33',
@@ -361,6 +393,7 @@ const data = [
     size: 'средний',
     manufacturer: 'ООО Иванушка',
     favorite: false,
+    image: 'Blue',
   },
   {
     num: '34',
@@ -372,6 +405,7 @@ const data = [
     size: 'большой',
     manufacturer: 'ООО Малиновка',
     favorite: false,
+    image: 'Green',
   },
   {
     num: '35',
@@ -383,6 +417,7 @@ const data = [
     size: 'средний',
     manufacturer: 'ООО Иванушка',
     favorite: true,
+    image: 'Yellow',
   },
   {
     num: '36',
@@ -394,6 +429,7 @@ const data = [
     size: 'большой',
     manufacturer: 'ООО Иванушка',
     favorite: false,
+    image: 'Blue',
   },
   {
     num: '37',
@@ -405,6 +441,7 @@ const data = [
     size: 'большой',
     manufacturer: 'ООО Снегурочка',
     favorite: false,
+    image: 'Green',
   },
   {
     num: '38',
@@ -416,6 +453,7 @@ const data = [
     size: 'большой',
     manufacturer: 'ООО Иванушка',
     favorite: false,
+    image: 'Blue',
   },
   {
     num: '39',
@@ -427,6 +465,7 @@ const data = [
     size: 'большой',
     manufacturer: 'ООО Малиновка',
     favorite: false,
+    image: 'Red',
   },
   {
     num: '40',
@@ -438,6 +477,7 @@ const data = [
     size: 'большой',
     manufacturer: 'ООО Малиновка',
     favorite: false,
+    image: 'Yellow',
   },
   {
     num: '41',
@@ -449,6 +489,7 @@ const data = [
     size: 'большой',
     manufacturer: 'ООО Снегурочка',
     favorite: false,
+    image: 'White',
   },
   {
     num: '42',
@@ -460,6 +501,7 @@ const data = [
     size: 'средний',
     manufacturer: 'ООО Малиновка',
     favorite: false,
+    image: 'Green',
   },
   {
     num: '43',
@@ -471,6 +513,7 @@ const data = [
     size: 'большой',
     manufacturer: 'ООО Иванушка',
     favorite: false,
+    image: 'Red',
   },
   {
     num: '44',
@@ -482,6 +525,7 @@ const data = [
     size: 'средний',
     manufacturer: 'ООО Малиновка',
     favorite: true,
+    image: 'Red',
   },
   {
     num: '45',
@@ -493,6 +537,7 @@ const data = [
     size: 'большой',
     manufacturer: 'ООО Снегурочка',
     favorite: false,
+    image: 'White',
   },
   {
     num: '46',
@@ -504,6 +549,7 @@ const data = [
     size: 'малый',
     manufacturer: 'ООО Снегурочка',
     favorite: false,
+    image: 'Red',
   },
   {
     num: '47',
@@ -515,6 +561,7 @@ const data = [
     size: 'малый',
     manufacturer: 'ООО Малиновка',
     favorite: false,
+    image: 'Red',
   },
   {
     num: '48',
@@ -526,6 +573,7 @@ const data = [
     size: 'большой',
     manufacturer: 'ООО Иванушка',
     favorite: false,
+    image: 'Yellow',
   },
   {
     num: '49',
@@ -537,6 +585,7 @@ const data = [
     size: 'большой',
     manufacturer: 'ООО Малиновка',
     favorite: false,
+    image: 'Yellow',
   },
   {
     num: '50',
@@ -548,6 +597,7 @@ const data = [
     size: 'большой',
     manufacturer: 'ООО Иванушка',
     favorite: false,
+    image: 'Red',
   },
   {
     num: '51',
@@ -559,6 +609,7 @@ const data = [
     size: 'малый',
     manufacturer: 'ООО Малиновка',
     favorite: false,
+    image: 'Red',
   },
   {
     num: '52',
@@ -570,6 +621,7 @@ const data = [
     size: 'большой',
     manufacturer: 'ООО Малиновка',
     favorite: true,
+    image: 'Red',
   },
   {
     num: '53',
@@ -581,6 +633,7 @@ const data = [
     size: 'большой',
     manufacturer: 'ООО Снегурочка',
     favorite: false,
+    image: 'White',
   },
   {
     num: '54',
@@ -592,6 +645,7 @@ const data = [
     size: 'большой',
     manufacturer: 'ООО Иванушка',
     favorite: false,
+    image: 'Green',
   },
   {
     num: '55',
@@ -603,6 +657,7 @@ const data = [
     size: 'большой',
     manufacturer: 'ООО Малиновка',
     favorite: false,
+    image: 'Yellow',
   },
   {
     num: '56',
@@ -614,6 +669,7 @@ const data = [
     size: 'малый',
     manufacturer: 'ООО Малиновка',
     favorite: false,
+    image: 'Yellow',
   },
   {
     num: '57',
@@ -625,6 +681,7 @@ const data = [
     size: 'средний',
     manufacturer: 'ООО Иванушка',
     favorite: false,
+    image: 'Yellow',
   },
   {
     num: '58',
@@ -636,6 +693,7 @@ const data = [
     size: 'средний',
     manufacturer: 'ООО Иванушка',
     favorite: false,
+    image: 'White',
   },
   {
     num: '59',
@@ -647,6 +705,7 @@ const data = [
     size: 'средний',
     manufacturer: 'ООО Снегурочка',
     favorite: false,
+    image: 'Yellow',
   },
   {
     num: '60',
@@ -658,6 +717,7 @@ const data = [
     size: 'средний',
     manufacturer: 'ООО Снегурочка',
     favorite: true,
+    image: 'White',
   },
 ];
 

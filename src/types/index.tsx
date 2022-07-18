@@ -8,6 +8,7 @@ export interface ICardItem {
   size: string;
   manufacturer: string;
   favorite: boolean;
+  image: string;
 }
 
 export interface ICard {
@@ -25,6 +26,7 @@ export interface Card {
     size: string;
     manufacturer: string;
     favorite: boolean;
+    image: string;
   };
 }
 

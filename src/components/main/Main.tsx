@@ -75,23 +75,23 @@ const Main = (props: { addToCart: (num: string) => void; removeFromCart: (num: s
     if (size) {
       setSize(JSON.parse(size));
     }
-    const favorite = JSON.parse(String(localStorage.getItem('Favorite')));
-    setFavorite(favorite);
+    // const favorite = JSON.parse(String(localStorage.getItem('Favorite')));
+    // setFavorite(favorite);
 
-    const endRateRange = JSON.parse(String(localStorage.getItem('EndRateRange')));
-    setEndRateRange(endRateRange);
+    // const endRateRange = JSON.parse(String(localStorage.getItem('EndRateRange')));
+    // setEndRateRange(endRateRange);
 
-    const startRateRange = JSON.parse(String(localStorage.getItem('StartRateRange')));
-    setStartRateRange(startRateRange);
+    // const startRateRange = JSON.parse(String(localStorage.getItem('StartRateRange')));
+    // setStartRateRange(startRateRange);
 
-    const endValueRange = JSON.parse(String(localStorage.getItem('EndValueRange')));
-    setEndValueRange(endValueRange);
+    // const endValueRange = JSON.parse(String(localStorage.getItem('EndValueRange')));
+    // setEndValueRange(endValueRange);
 
-    const startValueRange = JSON.parse(String(localStorage.getItem('StartValueRange')));
-    setStartValueRange(startValueRange);
+    // const startValueRange = JSON.parse(String(localStorage.getItem('StartValueRange')));
+    // setStartValueRange(startValueRange);
 
-    const selectedSort = JSON.parse(String(localStorage.getItem('SelectedSort')));
-    setSelectedSort(selectedSort);
+    // const selectedSort = JSON.parse(String(localStorage.getItem('SelectedSort')));
+    // setSelectedSort(selectedSort);
   }, []);
 
   useEffect(() => {

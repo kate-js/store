@@ -2,6 +2,27 @@ import './CardItem.css';
 
 import { ICardItem } from '../../../../types';
 import MyButton from '../../../UI/button/MyButton';
+import Green from '../../../../assets/Green.png';
+import Yellow from '../../../../assets/Yellow.png';
+import Red from '../../../../assets/Red.png';
+import White from '../../../../assets/White.jpeg';
+import Blue from '../../../../assets/Blue.jpeg';
+
+type pictures = {
+  Green: string;
+  Yellow: string;
+  Blue: string;
+  White: string;
+  Red: string;
+};
+
+const PICTURES: pictures = {
+  Green: Green,
+  Yellow: Yellow,
+  Blue: Blue,
+  White: White,
+  Red: Red,
+};
 
 const CardItem = (props: {
   card: ICardItem;
@@ -23,9 +44,10 @@ const CardItem = (props: {
   const buttonLabel = props.cart.includes(props.card.num) ? 'В корзине' : 'Добавить в корзину';
 
   return (
-    <div className="card">
+    <div className="card" data-testid="product-card">
       <div className="card__content">
         <h3>{props.card.name}</h3>
+        <img src={String(PICTURES[props.card.image as keyof pictures])} alt="boll" className="card__image" />
         <p>Цвет: {props.card.color}</p>
         <p>Размер: {props.card.size}</p>
         <p>Форма: {props.card.shape}</p>

@@ -12,7 +12,7 @@ const Header = (props: { cartLength: number }) => {
           <img src={Cart} alt="cart" />
         </div>
         <div>
-          <span>{props.cartLength}</span>
+          <span data-testid="cart-counter">{props.cartLength}</span>
         </div>
       </div>
     </div>

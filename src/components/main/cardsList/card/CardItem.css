@@ -8,13 +8,14 @@
   align-items: center;
   justify-content: space-between;
   padding: 10px;
-  max-height: 220px;
+  /* max-height: 220px; */
   background-color: rgba(247, 249, 250, 0.5);
 }
 
 .card__image {
   display: flex;
   overflow: hidden;
+  max-height: 200px;
   /* border: 1px solid #000; */
 }
 .card img {
