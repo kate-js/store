@@ -65,3 +65,14 @@
   background-color: rgba(247, 245, 245, 0.3);
   padding: 15px;
 }
+
+.main__search,
+.main__checkbox {
+  cursor: pointer;
+}
+
+.main__search:hover,
+.main__checkbox:hover,
+.main__range:hover {
+  background-color: rgba(124, 218, 247, 0.3);
+}
