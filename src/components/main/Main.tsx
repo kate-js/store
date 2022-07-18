@@ -10,26 +10,7 @@ import CardList from './cardsList/CardList';
 import MyButton from '../UI/button/MyButton';
 
 import cards from '../../data/products';
-
-const COLORS = {
-  Yellow: 'желтый',
-  Green: 'зелёный',
-  White: 'белый',
-  Blue: 'синий',
-  Red: 'красный',
-};
-
-const SIZE = {
-  big: 'большой',
-  middle: 'средний',
-  little: 'малый',
-};
-
-const MANUFACTURER = {
-  snow: 'ООО Снегурочка',
-  robin: 'ООО Малиновка',
-  ivan: 'ООО Иванушка',
-};
+import { COLORS, MANUFACTURER, SIZE } from './config';
 
 const Main = (props: {
   addToCart: (num: string) => void;
