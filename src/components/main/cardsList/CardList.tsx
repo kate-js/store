@@ -1,5 +1,5 @@
 import { ICardItem } from '../../../types';
-import CardItems from './card/CardItems';
+import CardItem from './card/CardItem';
 
 const CardList = (props: {
   card: ICardItem[];
@@ -11,7 +11,7 @@ const CardList = (props: {
     <div className="card__section">
       {props.card.length !== 0 ? (
         props.card.map((card: ICardItem) => (
-          <CardItems
+          <CardItem
             card={card}
             key={card.num}
             addToCart={props.addToCart}
@@ -20,7 +20,7 @@ const CardList = (props: {
           />
         ))
       ) : (
-        <h3>К сожалению, нет товара, соответствующего вашим фильтрам!</h3>
+        <h3>Извините, совпадений не обнаружено!</h3>
       )}
     </div>
   );

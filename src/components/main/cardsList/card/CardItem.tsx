@@ -1,32 +1,26 @@
-import React, { useState } from 'react';
-
-import './CardItems.css';
+import './CardItem.css';
 
 import { ICardItem } from '../../../../types';
 import MyButton from '../../../UI/button/MyButton';
 
-const CardItems = (props: {
+const CardItem = (props: {
   card: ICardItem;
   addToCart: (num: string) => void;
   removeFromCart: (num: string) => void;
   cart: string[];
 }) => {
-  const [valueButton, setValueButton] = useState('Добавить в корзину');
-
   const changeBasketValue = () => {
-    console.log(props.cart.length);
     if (props.cart.includes(props.card.num)) {
       props.removeFromCart(props.card.num);
-      setValueButton('Добавить в корзину');
-    } else if (props.cart.length + 1 > 5) {
-      alert(`Корзина переполнена(максимум 5 товаров)`);
+    } else if (props.cart.length + 1 > 20) {
+      alert(`Корзина переполнена(максимум 20 товаров)`);
       props.removeFromCart(props.card.num);
-      setValueButton('Добавить в корзину');
     } else {
-      setValueButton('В корзине');
       props.addToCart(props.card.num);
     }
   };
+
+  const buttonLabel = props.cart.includes(props.card.num) ? 'В корзине' : 'Добавить в корзину';
 
   return (
     <div className="card">
@@ -39,9 +33,11 @@ const CardItems = (props: {
         <p>Год выпуска: {props.card.year}</p>
         <p>Производитель: {props.card.manufacturer}</p>
       </div>
-      <MyButton onClick={changeBasketValue}>{valueButton}</MyButton>
+      <MyButton data-testid={`button-${props.card.num}`} onClick={changeBasketValue}>
+        {buttonLabel}
+      </MyButton>
     </div>
   );
 };
 
-export default CardItems;
+export default CardItem;
