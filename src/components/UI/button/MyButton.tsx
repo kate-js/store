@@ -1,11 +1,6 @@
-import { ReactNode } from 'react';
+import { Props } from '../../../types';
 
 import './MyButton.css';
-
-interface Props {
-  children?: ReactNode;
-  onClick: () => void;
-}
 
 export const MyButton = ({ children, ...props }: Props) => {
   return (

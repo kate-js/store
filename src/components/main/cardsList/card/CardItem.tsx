@@ -1,54 +1,37 @@
 import { MyButton } from '../../../UI/button/MyButton';
 
-import { ICardItem, pictures } from '../../../../types';
+import { IProps, pictures } from '../../../../types';
+import { PICTURES } from '../../../../data/products';
 
-import Green from '../../../../assets/Green.png';
-import Yellow from '../../../../assets/Yellow.png';
-import Red from '../../../../assets/Red.png';
-import White from '../../../../assets/White.png';
-import Blue from '../../../../assets/Blue.png';
 import './CardItem.css';
 
-const PICTURES: pictures = {
-  Green: Green,
-  Yellow: Yellow,
-  Blue: Blue,
-  White: White,
-  Red: Red,
-};
-
-export const CardItem = (props: {
-  card: ICardItem;
-  addToCart: (num: string) => void;
-  removeFromCart: (num: string) => void;
-  cart: string[];
-}) => {
+export const CardItem = ({ item, addToCart, removeFromCart, cart }: IProps) => {
   const changeBasketValue = () => {
-    if (props.cart.includes(props.card.num)) {
-      props.removeFromCart(props.card.num);
-    } else if (props.cart.length + 1 > 20) {
+    if (cart.includes(item.num)) {
+      removeFromCart(item.num);
+    } else if (cart.length + 1 > 20) {
       alert(`Корзина переполнена(максимум 20 товаров)`);
-      props.removeFromCart(props.card.num);
+      removeFromCart(item.num);
     } else {
-      props.addToCart(props.card.num);
+      addToCart(item.num);
     }
   };
 
-  const buttonLabel = props.cart.includes(props.card.num) ? 'В корзине' : 'Добавить в корзину';
+  const buttonLabel = cart.includes(item.num) ? 'В корзине' : 'Добавить в корзину';
 
   return (
     <div className="card" data-testid="product-card">
       <div className="card__content">
-        <h3>{props.card.name}</h3>
-        <img src={String(PICTURES[props.card.image as keyof pictures])} alt="boll" className="card__image" />
-        <p>Цвет: {props.card.color}</p>
-        <p>Размер: {props.card.size}</p>
-        <p>Форма: {props.card.shape}</p>
-        <p>Количество: {props.card.count}</p>
-        <p>Год выпуска: {props.card.year}</p>
-        <p>Производитель: {props.card.manufacturer}</p>
+        <h3>{item.name}</h3>
+        <img src={String(PICTURES[item.image as keyof pictures])} alt="boll" className="card__image" />
+        <p>Цвет: {item.color}</p>
+        <p>Размер: {item.size}</p>
+        <p>Форма: {item.shape}</p>
+        <p>Количество: {item.count}</p>
+        <p>Год выпуска: {item.year}</p>
+        <p>Производитель: {item.manufacturer}</p>
       </div>
-      <MyButton data-testid={`button-${props.card.num}`} onClick={changeBasketValue}>
+      <MyButton data-testid={`button-${item.num}`} onClick={changeBasketValue}>
         {buttonLabel}
       </MyButton>
     </div>

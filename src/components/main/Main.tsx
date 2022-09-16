@@ -1,23 +1,18 @@
 import { useState, useEffect, ChangeEvent } from 'react';
 import Slider from 'rc-slider';
 
-import { Colors, ICardItem, Manufacturer, Size } from '../../types';
+import { Colors, ICardItem, ICards, Manufacturer, Size } from '../../types';
 import { MySelect } from '../UI/MySelect';
 import { CardList } from './cardsList/CardList';
 import { MyButton } from '../UI/button/MyButton';
 
-import cards from '../../data/products';
+import cards, { COLOR, MANUFACTURE, SIZEBOLL } from '../../data/products';
 import { COLORS, MANUFACTURER, SIZE } from './config';
 
 import './main.css';
 import 'rc-slider/assets/index.css';
 
-const Main = (props: {
-  addToCart: (num: string) => void;
-  removeFromCart: (num: string) => void;
-  cart: string[];
-  cleanup: () => void;
-}) => {
+export const Main = ({ addToCart, cart, cleanup, removeFromCart }: ICards) => {
   const [selectedSort, setSelectedSort] = useState<string>('');
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [displayedCards, setDisplayedCards] = useState<ICardItem[]>(cards);
@@ -26,23 +21,9 @@ const Main = (props: {
   const [startRateRange, setStartRateRange] = useState<number>(0);
   const [endRateRange, setEndRateRange] = useState<number>(20);
   const [favorite, setFavorite] = useState(false);
-  const [color, setColor] = useState<Colors>({
-    Yellow: true,
-    Green: true,
-    White: true,
-    Blue: true,
-    Red: true,
-  });
-  const [size, setSize] = useState<Size>({
-    big: true,
-    middle: true,
-    little: true,
-  });
-  const [manufacturer, setManufacturer] = useState<Manufacturer>({
-    snow: true,
-    robin: true,
-    ivan: true,
-  });
+  const [color, setColor] = useState<Colors>(COLOR);
+  const [size, setSize] = useState<Size>(SIZEBOLL);
+  const [manufacturer, setManufacturer] = useState<Manufacturer>(MANUFACTURE);
 
   useEffect(() => {
     sortCard(selectedSort);
@@ -242,7 +223,7 @@ const Main = (props: {
     cleanFilters();
     localStorage.clear();
     setSelectedSort('');
-    props.cleanup();
+    cleanup();
   };
 
   const changeFavorite = () => {
@@ -378,14 +359,7 @@ const Main = (props: {
         <MyButton onClick={cleanFilters}>Очистить</MyButton>
         <MyButton onClick={cleanAll}>Cброс настроек</MyButton>
       </div>
-      <CardList
-        card={displayedCards}
-        addToCart={props.addToCart}
-        removeFromCart={props.removeFromCart}
-        cart={props.cart}
-      />
+      <CardList cards={displayedCards} addToCart={addToCart} removeFromCart={removeFromCart} cart={cart} />
     </div>
   );
 };
-
-export default Main;

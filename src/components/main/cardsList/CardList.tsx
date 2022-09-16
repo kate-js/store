@@ -1,22 +1,17 @@
-import { ICardItem } from '../../../types';
+import { ICardList } from '../../../types';
 import { CardItem } from './card/CardItem';
 
-export const CardList = (props: {
-  card: ICardItem[];
-  addToCart: (num: string) => void;
-  removeFromCart: (num: string) => void;
-  cart: string[];
-}) => {
+export const CardList = ({ cards, addToCart, removeFromCart, cart }: ICardList) => {
   return (
     <div className="card__section">
-      {props.card.length !== 0 ? (
-        props.card.map((card: ICardItem) => (
+      {cards.length !== 0 ? (
+        cards.map((item) => (
           <CardItem
-            card={card}
-            key={card.num}
-            addToCart={props.addToCart}
-            removeFromCart={props.removeFromCart}
-            cart={props.cart}
+            item={item}
+            key={Number(item.num)}
+            addToCart={addToCart}
+            removeFromCart={removeFromCart}
+            cart={cart}
           />
         ))
       ) : (
