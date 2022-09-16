@@ -1,7 +1,7 @@
 import './footer.css';
 import LogoSchool from '../../assets/rss_logo.svg';
 
-const Footer = () => {
+export const Footer = () => {
   return (
     <footer className="footer">
       <a href="https://github.com/kate-js" className="footer__github">
@@ -14,5 +14,3 @@ const Footer = () => {
     </footer>
   );
 };
-
-export default Footer;

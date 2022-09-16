@@ -1,4 +1,5 @@
-import React, { ReactNode } from 'react';
+import { ReactNode } from 'react';
+
 import './MyButton.css';
 
 interface Props {
@@ -6,12 +7,10 @@ interface Props {
   onClick: () => void;
 }
 
-const MyButton = ({ children, ...props }: Props) => {
+export const MyButton = ({ children, ...props }: Props) => {
   return (
     <button {...props} className="button">
       {children}
     </button>
   );
 };
-
-export default MyButton;

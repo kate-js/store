@@ -2,9 +2,9 @@ import { useState, useEffect, ChangeEvent } from 'react';
 import Slider from 'rc-slider';
 
 import { Colors, ICardItem, Manufacturer, Size } from '../../types';
-import MySelect from '../UI/MySelect';
-import CardList from './cardsList/CardList';
-import MyButton from '../UI/button/MyButton';
+import { MySelect } from '../UI/MySelect';
+import { CardList } from './cardsList/CardList';
+import { MyButton } from '../UI/button/MyButton';
 
 import cards from '../../data/products';
 import { COLORS, MANUFACTURER, SIZE } from './config';

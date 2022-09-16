@@ -1,4 +1,4 @@
-import MyButton from '../../../UI/button/MyButton';
+import { MyButton } from '../../../UI/button/MyButton';
 
 import { ICardItem, pictures } from '../../../../types';
 
@@ -17,7 +17,7 @@ const PICTURES: pictures = {
   Red: Red,
 };
 
-const CardItem = (props: {
+export const CardItem = (props: {
   card: ICardItem;
   addToCart: (num: string) => void;
   removeFromCart: (num: string) => void;
@@ -54,5 +54,3 @@ const CardItem = (props: {
     </div>
   );
 };
-
-export default CardItem;

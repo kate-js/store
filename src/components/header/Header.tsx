@@ -2,7 +2,7 @@ import './header.css';
 import Logo from '../../assets/balls.png';
 import Cart from '../../assets/cart.png';
 
-const Header = (props: { cartLength: number }) => {
+export const Header = (props: { cartLength: number }) => {
   return (
     <div className="header">
       <img src={Logo} alt="logo" />
@@ -18,5 +18,3 @@ const Header = (props: { cartLength: number }) => {
     </div>
   );
 };
-
-export default Header;

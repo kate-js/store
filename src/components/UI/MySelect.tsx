@@ -2,7 +2,7 @@ import { IMySelect, IOption } from '../../types';
 
 import './MySelect.css';
 
-const MySelect = ({ options, defaultValue, value, onChange }: IMySelect) => {
+export const MySelect = ({ options, defaultValue, value, onChange }: IMySelect) => {
   return (
     <select value={value} onChange={(event) => onChange(event.target.value)} className="main__select">
       <option value="" disabled>
@@ -16,5 +16,3 @@ const MySelect = ({ options, defaultValue, value, onChange }: IMySelect) => {
     </select>
   );
 };
-
-export default MySelect;

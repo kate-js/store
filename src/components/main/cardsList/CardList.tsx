@@ -1,7 +1,7 @@
 import { ICardItem } from '../../../types';
-import CardItem from './card/CardItem';
+import { CardItem } from './card/CardItem';
 
-const CardList = (props: {
+export const CardList = (props: {
   card: ICardItem[];
   addToCart: (num: string) => void;
   removeFromCart: (num: string) => void;
@@ -25,5 +25,3 @@ const CardList = (props: {
     </div>
   );
 };
-
-export default CardList;
