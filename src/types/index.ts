@@ -1,3 +1,5 @@
+import { ReactNode } from "react";
+
 export interface ICardItem {
   num: string;
   name: string;
@@ -16,18 +18,7 @@ export interface ICard {
 }
 
 export interface Card {
-  card: {
-    num: string;
-    name: string;
-    count: string;
-    year: string;
-    shape: string;
-    color: string;
-    size: string;
-    manufacturer: string;
-    favorite: boolean;
-    image: string;
-  };
+  card: ICardItem;
 }
 
 export interface IMySelect {
@@ -75,3 +66,30 @@ export type pictures = {
   White: string;
   Red: string;
 };
+
+export interface ICardList {
+  cards: ICardItem[];
+  cart: string[];
+  addToCart: (num: string) => void;
+  removeFromCart: (num: string) => void;
+}
+
+export interface IProps {
+  item: ICardItem;
+  cart: string[];
+  key?: number;
+  addToCart: (num: string) => void;
+  removeFromCart: (num: string) => void;
+}
+
+export interface ICards {
+  cart: string[];
+  addToCart: (num: string) => void;
+  removeFromCart: (num: string) => void;
+  cleanup: () => void;
+}
+
+export interface Props {
+  children?: ReactNode;
+  onClick: () => void;
+}
