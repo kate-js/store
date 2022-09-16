@@ -1,5 +1,4 @@
 import './header.css';
-
 import Logo from '../../assets/balls.png';
 import Cart from '../../assets/cart.png';
 

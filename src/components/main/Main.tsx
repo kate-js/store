@@ -1,6 +1,3 @@
-import './main.css';
-import 'rc-slider/assets/index.css';
-
 import { useState, useEffect, ChangeEvent } from 'react';
 import Slider from 'rc-slider';
 
@@ -11,6 +8,9 @@ import MyButton from '../UI/button/MyButton';
 
 import cards from '../../data/products';
 import { COLORS, MANUFACTURER, SIZE } from './config';
+
+import './main.css';
+import 'rc-slider/assets/index.css';
 
 const Main = (props: {
   addToCart: (num: string) => void;

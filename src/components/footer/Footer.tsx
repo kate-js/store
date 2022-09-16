@@ -1,5 +1,6 @@
 import './footer.css';
 import LogoSchool from '../../assets/rss_logo.svg';
+
 const Footer = () => {
   return (
     <footer className="footer">

@@ -1,13 +1,12 @@
 import { useEffect, useState } from 'react';
 
-import './App.css';
-
 import Footer from './components/footer/Footer';
 import Header from './components/header/Header';
 import Main from './components/main/Main';
 
+import './App.css';
+
 function App() {
-  console.log('Все требования по функционалу выполнены - 200 баллов. Спасибо!');
   const [cart, setCart] = useState<Array<string>>(JSON.parse(String(localStorage.getItem('Cart'))) || []);
 
   useEffect(() => {

@@ -1,4 +1,5 @@
 import { IMySelect, IOption } from '../../types';
+
 import './MySelect.css';
 
 const MySelect = ({ options, defaultValue, value, onChange }: IMySelect) => {

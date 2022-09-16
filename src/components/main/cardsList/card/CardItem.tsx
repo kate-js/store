@@ -1,12 +1,13 @@
-import './CardItem.css';
+import MyButton from '../../../UI/button/MyButton';
 
 import { ICardItem, pictures } from '../../../../types';
-import MyButton from '../../../UI/button/MyButton';
+
 import Green from '../../../../assets/Green.png';
 import Yellow from '../../../../assets/Yellow.png';
 import Red from '../../../../assets/Red.png';
 import White from '../../../../assets/White.png';
 import Blue from '../../../../assets/Blue.png';
+import './CardItem.css';
 
 const PICTURES: pictures = {
   Green: Green,
