@@ -1,3 +1,11 @@
+import { pictures } from '../types';
+
+import Green from '../assets/Green.png';
+import Yellow from '../assets/Yellow.png';
+import Red from '../assets/Red.png';
+import White from '../assets/White.png';
+import Blue from '../assets/Blue.png';
+
 const data = [
   {
     num: '1',
@@ -722,3 +730,31 @@ const data = [
 ];
 
 export default data;
+
+export const PICTURES: pictures = {
+  Green: Green,
+  Yellow: Yellow,
+  Blue: Blue,
+  White: White,
+  Red: Red,
+};
+
+export const COLOR = {
+  Yellow: true,
+  Green: true,
+  White: true,
+  Blue: true,
+  Red: true,
+};
+
+export const SIZEBOLL = {
+  big: true,
+  middle: true,
+  little: true,
+};
+
+export const MANUFACTURE = {
+  snow: true,
+  robin: true,
+  ivan: true,
+};
