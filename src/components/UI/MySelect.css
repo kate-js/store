@@ -1,0 +1,10 @@
+.main__select {
+  border: 2px solid rgba(247, 245, 245);
+  background-color: rgba(247, 245, 245, 0.3);
+  padding: 5px;
+  cursor: pointer;
+}
+
+.main__select:hover {
+  background-color: rgba(124, 218, 247, 0.3);
+}
